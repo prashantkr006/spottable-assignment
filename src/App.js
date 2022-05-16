@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import logo from './assets/spottable-logo.jpg';
+import { Typography } from '@mui/material';
 import './App.css';
+import CSM from './pages/CSM';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<header className="header">
+				<img src={logo} width="50px" height="50px" alt="spottable logo" />
+				<div style={{ marginLeft: '10px' }}>
+					<Typography variant="h5" fontWeight={700}>
+						YOUR SPOTTABLE TEAM
+					</Typography>
+					<Typography variant="subtitle2">Spottable supports you all throughout</Typography>
+				</div>
+			</header>
+			<CSM />
+		</div>
+	);
 }
 
 export default App;

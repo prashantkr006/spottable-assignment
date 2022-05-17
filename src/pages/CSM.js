@@ -1,7 +1,9 @@
 import React from 'react';
 import './CSM.css';
-import { Paper } from '@mui/material';
-import { Typography, Button } from '@mui/material';
+import { Divider, Paper, Typography } from '@mui/material';
+import SearchCSM from '../components/search-csm/SearchCSM';
+import UserCard from '../components/User-card/UserCard';
+import { userData } from '../utils/userData';
 
 function CSM() {
 	return (
@@ -9,18 +11,16 @@ function CSM() {
 			<Typography variant="h6" fontWeight={700}>
 				Customer success Managers
 			</Typography>
-			<div className="search-csm">
-				<input className="searchbar" placeholder="Add by Name or email" />
-				<Button
-					sx={{
-						backgroundColor: '#03045e',
-						borderRadius: '0 8px 8px 0',
-						height: '40px'
-					}}
-					variant="contained"
-				>
-					Add CSM
-				</Button>
+			<SearchCSM />
+			<div className="csm-userList">
+				{userData.map((user) => {
+					return (
+						<>
+							<UserCard key={user.id} name={user.name} email={user.email} post={user.post} />
+							<Divider />
+						</>
+					);
+				})}
 			</div>
 		</Paper>
 	);
